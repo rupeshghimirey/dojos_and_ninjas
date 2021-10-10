@@ -9,6 +9,24 @@ from flask_app.models.dojo import Dojo
 def index():
     return redirect('/dojos')
 
+# ==============================================
+# Register Page
+# ==============================================
+@app.route("/register-page")
+def reggister():
+    list_of_all_dojos = Dojo.get_all_dojos();
+
+    return render_template("register.html", all_dojos = list_of_all_dojos)
+
+# ==============================================
+# Login
+# ==============================================
+@app.route("/login-page")
+def login():
+    list_of_all_dojos = Dojo.get_all_dojos();
+
+    return render_template("login.html", all_dojos = list_of_all_dojos)
+
 # ==========================================
 # Route that shows the create_dojos html page
 # contains form for adding new dojos
@@ -47,3 +65,5 @@ def dojo_details_with_ninja(dojo_id):
     }
     dojo_one = Dojo.get_one_dojo_with_ninja(data)
     return render_template("dojo_details.html", dojo_one = dojo_one)
+
+

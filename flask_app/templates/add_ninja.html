@@ -14,11 +14,18 @@
 <body>
     <div class="main-body mt-5 mb-2">
         <form action="/add_ninja" method="POST" class="form-box col-lg-4 offset-lg-4">
+            {% with messages = get_flashed_messages() %} 
+            {% if messages %}                            
+            {% for message in messages %}
+            <p class="text-primary"> {{message}} </p>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
             <h2 class="form-header">New Ninja</h2>
             <div class="form-group mt-2">
                 <label for="exampleFormControlSelect1">Dojo:</label>
-                <select class="form-control" id="exampleFormControlSelect1" name="dojo_id" required>
-                    <option  selected hidden>--Select A Location--</option>
+                <select class="form-control" id="exampleFormControlSelect1" name="dojo_id" >
+                    <option value=""  selected hidden>--Select A Location--</option>
                     {%for dojo in list_of_all_dojos%}
                     <option value="{{dojo.id}}">{{dojo.name}}</option>
                     {%endfor%}
@@ -26,15 +33,15 @@
             </div>
             <div class="form-group  ">
                 <label for="exampleFormControlInput1">First Name:</label>
-                <input type="text" class="form-control" id="inputName" name="first_name" placeholder="first name" required>
+                <input type="text" class="form-control" id="inputName" name="first_name" placeholder="first name">
             </div>
             <div class="form-group  ">
                 <label for="exampleFormControlInput1">Last Name:</label>
-                <input type="text" class="form-control" id="inputName" name="last_name" placeholder="last name" required>
+                <input type="text" class="form-control" id="inputName" name="last_name" placeholder="last name" >
             </div>
             <div>
                 <label for="exampleFormControlInput1">Age:</label>                       
-                <input type="number" id="replyNumber" min="1" step="1" data-bind="value:replyNumber" class="form-control"name="age" placeholder="age" required>
+                <input type="number" id="replyNumber" min="1" step="1" data-bind="value:replyNumber" class="form-control"name="age" placeholder="age" >
             </div>
             <button type="submit" class="btn btn-warning mt-2">Sumbit</button>
         </form>

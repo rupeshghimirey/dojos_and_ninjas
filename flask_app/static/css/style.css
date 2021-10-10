@@ -5,7 +5,10 @@
     font-family: 'Roboto', sans-serif;
     /* outline: 1px dashed red; */
 }
-
+.background-image-register {
+    background-image: url("flask_app/static/img/pexels-shonejai-1227511.jpg");
+    background-color: #4b4545;
+}
 .form-header {
     color:#fcbf0c;
 }
@@ -14,6 +17,7 @@
     padding: 20px;
     margin: 30px;
     color:white;
+    
 }
 
 .result-box {

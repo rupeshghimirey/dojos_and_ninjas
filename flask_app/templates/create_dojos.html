@@ -12,33 +12,34 @@
 </head>
 <body>
 
-    <div class="container col-lg-6 offset-lg-2 ">
-        <h2 class="text-primary mt-3 p-4">New Dojo</h2>
-
-        <form action="/create_dojo" method="POST">
-                    <label class="text-success" for="name">Name:</label>
-                    <input type="text" name="name">
-                    <input class="text-success" type="submit" value="Create">
-            </form>
-    </div>
-
-    <div class="container col-lg-4 offset-lg-7">
-        <h2 class="text-center text-light bg-dark">All Dojos</h2>
-
-        <div class="border border-dark">
-            {%for dojo in all_dojos%}
-            <div class="">
-                <a href="./dojos/details/{{dojo.id}}">
-                    <h2 class="text-center text-success {text-decoration: none }">{{dojo.name}}</h2>
-                </a>
+        <div class="container col-lg-6 offset-lg-9 mt-3">
+            <a href="/register-page" class="btn btn-info mt-2 ">Register</a>
+            <a href="/login-page" class="btn btn-info mt-2 ">Login</a>
+        </div>
+        <div class="container col-lg-6 offset-lg-2 ">
+            <h2 class="text-primary mt-3 p-4">New Dojo</h2>
+            <form action="/create_dojo" method="POST">
+                        <label class="text-success" for="name">Name:</label>
+                        <input type="text" name="name">
+                        <input class="text-success" type="submit" value="Create">
+                </form>
+        </div>
+        <div class="container col-lg-4 offset-lg-7">
+            <h2 class="text-center text-light bg-dark">All Dojos</h2>
+            <div class="border border-dark">
+                {%for dojo in all_dojos%}
+                <div class="">
+                    <a href="./dojos/details/{{dojo.id}}">
+                        <h2 class="text-center text-success {text-decoration: none }">{{dojo.name}}</h2>
+                    </a>
+                </div>
+                {%endfor%}
             </div>
-            {%endfor%}
+            <div class="text-center mt-3">
+                <a href="/add_ninja" class="btn btn-info mt-2 ">Add Ninja</a>
+            </div>
+        
         </div>
-
-        <div class="text-center mt-3">
-            <a href="/add_ninja" class="btn btn-info mt-2 ">Add Ninja</a>
-        </div>
-    </div>
 </body>
 
 </html>

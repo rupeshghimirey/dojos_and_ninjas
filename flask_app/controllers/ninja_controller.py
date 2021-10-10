@@ -14,6 +14,9 @@ def add_ninja_page():
 def create_User():
     # First we make a data dictionary from our request.form coming from our template.
     # The keys in data need to line up exactly with the variables in our query string.
+    if not Ninja.validate_ninja(request.form):
+        return redirect('/add_ninja')
+
     data = {
         "dojo_id": request.form["dojo_id"],
         "first_name": request.form["first_name"],
@@ -21,5 +24,5 @@ def create_User():
         "age" : request.form["age"]
     }
     Ninja.save(data)
-    
+    flash("New Ninja successfully added")
     return redirect("/dojos")
